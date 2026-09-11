@@ -4,47 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Админ-панель — Важский край</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;min-height:100vh}
 .hidden{display:none!important}
 
-/* LOGIN */
 #login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
 .login-card{background:#fffdf8;border:1px solid #d9cfbc;border-radius:12px;padding:40px;max-width:480px;width:100%;box-shadow:0 20px 40px -20px rgba(26,22,19,.2)}
-.login-card h1{font-family:'Playfair Display',Georgia,serif;font-size:32px;margin-bottom:8px;color:#1a1613}
+.login-card h1{font-family:'Playfair Display',Georgia,serif;font-size:32px;margin-bottom:8px}
 .login-card .sub{color:#6b6258;margin-bottom:24px;font-size:14px;line-height:1.6}
-.login-card label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:#1a1613}
+.login-card label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}
 .login-card input{width:100%;padding:12px 14px;border:1.5px solid #d9cfbc;border-radius:8px;font-size:14px;font-family:inherit;background:#fbfcfe;margin-bottom:16px}
 .login-card input:focus{outline:none;border-color:#9b1b1b;box-shadow:0 0 0 3px rgba(155,27,27,.1)}
-.login-card button{width:100%;padding:14px;background:#9b1b1b;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}
+.login-card button{width:100%;padding:14px;background:#9b1b1b;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s;font-family:inherit}
 .login-card button:hover{background:#c4302b}
 .help{font-size:12.5px;color:#6b6258;margin-top:16px;line-height:1.6}
 .help a{color:#9b1b1b;text-decoration:underline;cursor:pointer}
 .error{background:#ffeaea;color:#9b1b1b;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
 .error.show{display:block}
 
-/* ADMIN */
 .topbar{background:#1a1613;color:#f5efe3;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .topbar h1{font-family:'Playfair Display',Georgia,serif;font-size:18px;color:#fff}
-.topbar .actions{display:flex;gap:12px;align-items:center}
+.topbar .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .topbar a,.topbar button{color:rgba(245,239,227,.8);font-size:13px;background:none;border:1px solid rgba(255,255,255,.15);padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .3s;font-family:inherit}
 .topbar a:hover,.topbar button:hover{background:rgba(255,255,255,.1);color:#fff}
 .topbar .status{font-size:12px;color:rgba(245,239,227,.6)}
 
-.layout{display:grid;grid-template-columns:320px 1fr;gap:0;min-height:calc(100vh - 60px)}
+.layout{display:grid;grid-template-columns:320px 1fr;min-height:calc(100vh - 60px)}
 @media(max-width:900px){.layout{grid-template-columns:1fr}}
 
 .sidebar{background:#fffdf8;border-right:1px solid #d9cfbc;padding:20px;overflow-y:auto;max-height:calc(100vh - 60px)}
 .sidebar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.sidebar-header h2{font-size:15px;font-weight:700;color:#1a1613}
+.sidebar-header h2{font-size:15px;font-weight:700}
 .sidebar-header .count{font-size:12px;color:#6b6258}
 .btn-new{background:#9b1b1b;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;width:100%;margin-bottom:16px;transition:all .3s;font-family:inherit}
 .btn-new:hover{background:#c4302b}
 .news-list{display:flex;flex-direction:column;gap:8px}
 .news-item{padding:12px 14px;background:#f5efe3;border-radius:8px;cursor:pointer;transition:all .2s;border:1px solid transparent;font-size:13px}
 .news-item:hover{background:#ede4d2}
-.news-item.active{background:#1a1613;color:#fff;border-color:#1a1613}
+.news-item.active{background:#1a1613;color:#fff}
 .news-item .t{font-weight:600;margin-bottom:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .news-item .d{font-size:11.5px;color:#6b6258}
 .news-item.active .d{color:rgba(245,239,227,.6)}
@@ -53,11 +52,11 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
 
 .editor{padding:32px;overflow-y:auto;max-height:calc(100vh - 60px)}
 .editor-inner{max-width:800px;margin:0 auto}
-.editor h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;color:#1a1613;margin-bottom:24px}
+.editor h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;margin-bottom:24px}
 .empty-state{text-align:center;padding:60px 20px;color:#6b6258}
 .empty-state h3{font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1613;margin-bottom:10px}
 .field{margin-bottom:20px}
-.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#1a1613}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
 .field label .req{color:#9b1b1b}
 .field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid #d9cfbc;border-radius:8px;font-size:14px;font-family:inherit;background:#fffdf8;color:#1a1613;transition:all .3s}
 .field textarea{min-height:80px;resize:vertical;line-height:1.6}
@@ -78,6 +77,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
 .toast.show{opacity:1;transform:translateY(0)}
 .toast.error{background:#9b1b1b}
 .toast.success{background:#2d6a4f}
+
+/* ЗАГРУЗЧИК ИЗОБРАЖЕНИЙ */
 .image-uploader{
   border:2px dashed #d9cfbc;border-radius:10px;padding:20px;
   text-align:center;cursor:pointer;transition:all .3s;
@@ -121,24 +122,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
 <div id="login">
   <div class="login-card">
     <h1>Админ-панель</h1>
     <p class="sub">Газета «Важский край». Введите токен GitHub, чтобы управлять новостями.</p>
     <div class="error" id="loginError"></div>
     <label for="token">Personal Access Token</label>
-    <input type="password" id="token" placeholder="ghp_xxxxxxxxxxxxxxxx">
+    <input type="password" id="token" placeholder="github_pat_xxxxxxxxxxxxxxxx">
     <button onclick="login()">Войти</button>
     <p class="help">
-      Токен создаётся один раз: <a onclick="window.open('https://github.com/settings/tokens/new?scopes=repo&description=Vazhsky+Kray+Admin','_blank')">создать токен на GitHub</a>.<br>
-      Права: <b>repo</b> (полный доступ к репозиториям).<br>
-      Токен хранится только в вашем браузере и никуда не отправляется, кроме GitHub.
+      Токен создаётся один раз: <a onclick="window.open('https://github.com/settings/tokens?type=beta','_blank')">создать fine-grained токен</a>.<br>
+      Права: <b>Contents → Read and write</b> для репозитория <b>vazhsky-kray</b>.<br>
+      Токен хранится только в вашем браузере и отправляется только в GitHub.
     </p>
   </div>
 </div>
 
-<!-- ADMIN SCREEN -->
 <div id="admin" class="hidden">
   <div class="topbar">
     <h1>📰 Админ-панель · Важский край</h1>
@@ -148,9 +147,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
       <button onclick="logout()">Выйти</button>
     </div>
   </div>
-
   <div class="layout">
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <h2>Новости</h2>
@@ -159,8 +156,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
       <button class="btn-new" onclick="newItem()">+ Добавить новость</button>
       <div class="news-list" id="newsList"></div>
     </aside>
-
-    <!-- EDITOR -->
     <section class="editor">
       <div class="editor-inner" id="editorInner">
         <div class="empty-state">
@@ -175,46 +170,38 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;m
 <div class="toast" id="toast"></div>
 
 <script>
-// ==================== КОНФИГ ====================
 const CONFIG = {
   owner: 'elczoffk-glitch',
   repo: 'vazhsky-kray',
   branch: 'main',
   path: 'content/news.json'
 };
-
 const CATEGORIES = ['Общество','Культура','Спорт','ЖКХ','Образование','История','Официально','Люди'];
 
-// ==================== СОСТОЯНИЕ ====================
 let token = localStorage.getItem('gh_token') || '';
 let newsData = [];
 let currentSha = null;
 let editingIndex = -1;
 
-// ==================== УТИЛИТЫ ====================
-function b64Encode(str){
-  return btoa(unescape(encodeURIComponent(str)));
-}
-function b64Decode(str){
-  return decodeURIComponent(escape(atob(str)));
-}
+function b64Encode(str){ return btoa(unescape(encodeURIComponent(str))); }
+function b64Decode(str){ return decodeURIComponent(escape(atob(str))); }
 function showToast(msg, type=''){
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show ' + type;
   setTimeout(()=>t.classList.remove('show'), 3000);
 }
-function setStatus(text){
-  document.getElementById('status').textContent = text;
-}
+function setStatus(text){ document.getElementById('status').textContent = text; }
 function formatDate(d){
   if(!d) return '';
   const dt = new Date(d);
   const months = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
   return `${dt.getDate()} ${months[dt.getMonth()]} ${dt.getFullYear()}`;
 }
+function escapeHtml(str){
+  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
 
-// ==================== АВТОРИЗАЦИЯ ====================
 async function login(){
   const input = document.getElementById('token');
   const errEl = document.getElementById('loginError');
@@ -239,14 +226,13 @@ function logout(){
   location.reload();
 }
 
-// ==================== GITHUB API ====================
 async function loadNews(){
   const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}?ref=${CONFIG.branch}&t=${Date.now()}`;
   const res = await fetch(url, {
     headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
   });
-  if(res.status === 401) throw new Error('токен неверный');
-  if(res.status === 404) throw new Error('файл content/news.json не найден');
+  if(res.status === 401) throw new Error('токен неверный или истёк');
+  if(res.status === 404) throw new Error('файл content/news.json не найден в репозитории');
   if(!res.ok) throw new Error('ошибка ' + res.status);
   const data = await res.json();
   currentSha = data.sha;
@@ -280,6 +266,131 @@ async function saveNews(){
   currentSha = data.content.sha;
 }
 
+// ==================== ЗАГРУЗКА ИЗОБРАЖЕНИЙ ====================
+async function compressImage(file){
+  return new Promise((resolve, reject)=>{
+    if(!file.type.startsWith('image/')){ reject(new Error('Это не изображение')); return; }
+    if(file.size > 15 * 1024 * 1024){ reject(new Error('Файл больше 15 МБ')); return; }
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = ()=>{
+        const canvas = document.createElement('canvas');
+        const MAX = 1400;
+        let w = img.width, h = img.height;
+        if(w > MAX){ h = Math.round(h * MAX / w); w = MAX; }
+        if(h > MAX){ w = Math.round(w * MAX / h); h = MAX; }
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0, w, h);
+        canvas.toBlob(blob=>{
+          if(blob) resolve(blob);
+          else reject(new Error('Ошибка сжатия'));
+        }, 'image/jpeg', 0.82);
+      };
+      img.onerror = ()=> reject(new Error('Не удалось прочитать изображение'));
+      img.src = e.target.result;
+    };
+    reader.onerror = ()=> reject(new Error('Ошибка чтения файла'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function blobToBase64(blob){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      resolve(reader.result.split(',')[1]);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function uploadImageToGitHub(file){
+  const compressed = await compressImage(file);
+  const filename = `${Date.now()}-${Math.random().toString(36).slice(2,8)}.jpg`;
+  const path = `images/news/${filename}`;
+  const base64 = await blobToBase64(compressed);
+  const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${path}`;
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: `Загрузка изображения ${filename}`,
+      content: base64,
+      branch: CONFIG.branch
+    })
+  });
+  if(!res.ok){
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || 'Ошибка загрузки изображения');
+  }
+  return path;
+}
+
+async function handleImageSelect(file){
+  const uploader = document.getElementById('imageUploader');
+  if(!uploader) return;
+  const originalHTML = uploader.innerHTML;
+  uploader.innerHTML = `<div class="upload-progress"><div class="spinner"></div>Загрузка...</div>`;
+  uploader.classList.add('has-photo');
+  try {
+    const path = await uploadImageToGitHub(file);
+    const item = newsData[editingIndex];
+    const oldImage = item.image;
+    item.image = path;
+    showToast('Изображение загружено', 'success');
+    renderEditor();
+    if(oldImage && oldImage !== path){
+      deleteImageFromGitHub(oldImage).catch(()=>{});
+    }
+  } catch(e){
+    showToast('Ошибка: ' + e.message, 'error');
+    uploader.innerHTML = originalHTML;
+    uploader.classList.remove('has-photo');
+  }
+}
+
+function handleImageRemove(){
+  const item = newsData[editingIndex];
+  const oldImage = item.image;
+  item.image = '';
+  renderEditor();
+  if(oldImage) deleteImageFromGitHub(oldImage).catch(()=>{});
+  showToast('Изображение удалено', 'success');
+}
+
+async function deleteImageFromGitHub(path){
+  try {
+    const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${path}?ref=${CONFIG.branch}`;
+    const res = await fetch(url, {
+      headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if(!res.ok) return;
+    const data = await res.json();
+    await fetch(`https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${path}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `token ${token}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Удаление изображения ${path.split('/').pop()}`,
+        sha: data.sha,
+        branch: CONFIG.branch
+      })
+    });
+  } catch(e){ /* тихо */ }
+}
+
 // ==================== СПИСОК ====================
 function renderList(){
   const list = document.getElementById('newsList');
@@ -297,10 +408,6 @@ function renderList(){
   `).join('');
 }
 
-function escapeHtml(str){
-  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-}
-
 // ==================== РЕДАКТОР ====================
 function renderEditor(){
   const inner = document.getElementById('editorInner');
@@ -309,6 +416,8 @@ function renderEditor(){
     return;
   }
   const item = newsData[editingIndex] || {};
+  const hasImage = item.image && item.image.length > 0;
+
   inner.innerHTML = `
     <h2>${item.title ? 'Редактирование' : 'Новая новость'}</h2>
     <div class="field">
@@ -329,6 +438,25 @@ function renderEditor(){
       </div>
     </div>
     <div class="field">
+      <label>Фотография</label>
+      <div class="image-uploader ${hasImage ? 'has-photo' : ''}" id="imageUploader">
+        ${hasImage ? `
+          <img src="${item.image}" alt="" class="preview-img">
+          <button class="remove-img" onclick="handleImageRemove()" title="Удалить фото">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        ` : `
+          <div class="placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <b>Нажмите, чтобы загрузить фото</b>
+            или перетащите сюда файл<br>
+            <span style="font-size:12px;opacity:.7">Автоматически сожмётся до 1400px</span>
+          </div>
+        `}
+      </div>
+      <input type="file" id="imageInput" accept="image/*" style="display:none">
+    </div>
+    <div class="field">
       <label>Краткое описание (анонс)</label>
       <textarea id="f-excerpt" placeholder="1–2 предложения для карточки на главной...">${escapeHtml(item.excerpt || '')}</textarea>
     </div>
@@ -342,6 +470,26 @@ function renderEditor(){
       <button class="btn btn-ghost" onclick="cancelEdit()">Отмена</button>
     </div>
   `;
+
+  const uploader = document.getElementById('imageUploader');
+  const input = document.getElementById('imageInput');
+  if(uploader && input){
+    if(!hasImage){
+      uploader.addEventListener('click', ()=> input.click());
+      uploader.addEventListener('dragover', e=>{ e.preventDefault(); uploader.classList.add('drag'); });
+      uploader.addEventListener('dragleave', ()=> uploader.classList.remove('drag'));
+      uploader.addEventListener('drop', e=>{
+        e.preventDefault();
+        uploader.classList.remove('drag');
+        if(e.dataTransfer.files.length){
+          handleImageSelect(e.dataTransfer.files[0]);
+        }
+      });
+    }
+    input.addEventListener('change', e=>{
+      if(e.target.files.length) handleImageSelect(e.target.files[0]);
+    });
+  }
 }
 
 function newItem(){
@@ -352,10 +500,12 @@ function newItem(){
     date: new Date().toISOString().slice(0,10),
     category: '',
     excerpt: '',
-    body: ''
+    body: '',
+    image: ''
   });
   renderList();
   renderEditor();
+  setTimeout(()=>{ document.getElementById('f-title')?.focus(); }, 100);
 }
 
 function editItem(i){
@@ -365,7 +515,6 @@ function editItem(i){
 }
 
 function cancelEdit(){
-  // Если это была новая пустая — удаляем
   if(editingIndex === newsData.length - 1 && !newsData[editingIndex].title){
     newsData.pop();
   }
@@ -406,10 +555,13 @@ async function saveItem(){
 
 async function deleteItem(){
   if(!confirm('Удалить эту новость? Действие необратимо.')) return;
+  const item = newsData[editingIndex];
+  const imageToDelete = item.image;
   newsData.splice(editingIndex, 1);
   setStatus('Удаление...');
   try {
     await saveNews();
+    if(imageToDelete) deleteImageFromGitHub(imageToDelete).catch(()=>{});
     showToast('Удалено', 'success');
     setStatus('Готово');
     editingIndex = -1;
@@ -420,7 +572,6 @@ async function deleteItem(){
   }
 }
 
-// ==================== СТАРТ ====================
 (async function init(){
   if(token){
     try {
