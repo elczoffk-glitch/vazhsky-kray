@@ -3,7 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Важский край — общественно-политическая газета Шенкурского округа</title>
+
+<!-- SEO -->
+<title>Шенкурский вестник — информационный портал Шенкурского округа</title>
+<meta name="description" content="Новости Шенкурского муниципального округа Архангельской области: события, культура, спорт, ЖКХ, официальные объявления. Неофициальный информационный ресурс.">
+<meta name="keywords" content="Шенкурск, Шенкурский округ, Архангельская область, новости, Вага, события, культура, спорт">
+<meta name="author" content="Шенкурский вестник">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a1613">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Шенкурский вестник">
+<meta property="og:title" content="Шенкурский вестник — информационный портал Шенкурского округа">
+<meta property="og:description" content="Новости Шенкурского муниципального округа Архангельской области: события, культура, спорт, ЖКХ.">
+<meta property="og:url" content="https://elczoffk-glitch.github.io/vazhsky-kray/">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:image" content="https://elczoffk-glitch.github.io/vazhsky-kray/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Шенкурский вестник">
+<meta name="twitter:description" content="Новости Шенкурского муниципального округа Архангельской области">
+<meta name="twitter:image" content="https://elczoffk-glitch.github.io/vazhsky-kray/og-cover.jpg">
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1613'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' font-weight='900' fill='%23d4a843' text-anchor='middle'%3EШ%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a1613'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='64' font-weight='900' fill='%23d4a843' text-anchor='middle'%3EШ%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -50,7 +79,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 .masthead-side .date-line{font-family:'Playfair Display',serif;font-style:italic;color:var(--red);font-size:14px}
 .masthead-center{text-align:center}
 .logo-ornament{color:var(--gold);font-size:18px;letter-spacing:8px;margin-bottom:2px;line-height:1}
-.masthead h1{font-size:clamp(38px,5.6vw,68px);font-weight:900;font-family:'Playfair Display',serif;letter-spacing:-.02em;line-height:.95;background:linear-gradient(180deg,var(--ink) 40%,var(--ink-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.masthead h1{font-size:clamp(32px,4.6vw,56px);font-weight:900;font-family:'Playfair Display',serif;letter-spacing:-.02em;line-height:.95;background:linear-gradient(180deg,var(--ink) 40%,var(--ink-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .masthead .subtitle{font-family:'PT Serif',serif;font-style:italic;font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
 .logo-ornament-bottom{color:var(--gold);font-size:14px;letter-spacing:6px;margin-top:2px;line-height:1}
 
@@ -75,7 +104,6 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .hero-main{padding:36px 40px}
 .hero-label{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;padding:5px 14px;border-radius:2px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
 .hero h2{font-size:clamp(28px,3.4vw,44px);font-weight:800;line-height:1.08;margin-bottom:20px}
-.hero h2 em{font-style:italic;color:var(--red)}
 .hero-excerpt{font-family:'PT Serif',serif;font-size:17px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;max-width:600px}
 .hero-meta{display:flex;gap:20px;align-items:center;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
 .hero-meta .author{display:flex;align-items:center;gap:8px;color:var(--ink);font-weight:600}
@@ -107,7 +135,7 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .section-head .link svg{width:13px;height:13px}
 
 .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:48px}
-.article-card{background:var(--card);border-radius:4px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:var(--tr);display:flex;flex-direction:column}
+.article-card{background:var(--card);border-radius:4px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:var(--tr);display:flex;flex-direction:column;cursor:pointer}
 .article-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
 .article-img{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(135deg,#c9b896,#a8926d);display:grid;place-items:center;color:rgba(255,255,255,.85)}
 .article-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(26,22,19,.25));z-index:2}
@@ -127,7 +155,7 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .article-body h3{font-size:19px;font-weight:700;line-height:1.28;margin-bottom:12px;transition:color .3s}
 .article-card:hover .article-body h3{color:var(--red)}
 .article-body p{font-family:'PT Serif',serif;font-size:14.5px;color:var(--muted);line-height:1.6;margin-bottom:16px;flex:1}
-.article-body .read-more{font-size:12px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;display:inline-flex;align-items:center;gap:6px;margin-top:auto;cursor:pointer}
+.article-body .read-more{font-size:12px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;display:inline-flex;align-items:center;gap:6px;margin-top:auto}
 .article-card:hover .read-more{color:var(--red);gap:10px}
 
 .tags-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -145,7 +173,7 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .issue-card:hover::before{transform:scaleX(1)}
 .issue-cover{aspect-ratio:3/4;background:linear-gradient(180deg,#fffdf8,#ede4d2);padding:20px 18px;display:flex;flex-direction:column;border-bottom:1px solid var(--line);position:relative}
 .issue-cover::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--ink)}
-.issue-masthead{font-family:'Playfair Display',serif;font-weight:900;font-size:15px;text-align:center;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--ink);letter-spacing:-.01em;line-height:1;margin-bottom:8px}
+.issue-masthead{font-family:'Playfair Display',serif;font-weight:900;font-size:14px;text-align:center;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--ink);letter-spacing:-.01em;line-height:1;margin-bottom:8px}
 .issue-num{text-align:center;font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px}
 .issue-headline{font-family:'Playfair Display',serif;font-weight:700;font-size:13px;line-height:1.2;color:var(--ink);margin-bottom:10px}
 .issue-lines{display:flex;flex-direction:column;gap:4px;flex:1}
@@ -178,23 +206,9 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .tl-year{font-family:'Playfair Display',serif;font-weight:800;font-size:24px;color:var(--ink);line-height:1;margin-bottom:8px}
 .tl-text{font-family:'PT Serif',serif;font-size:13.5px;color:var(--muted);line-height:1.5}
 
-.subscribe-cta{background:linear-gradient(135deg,var(--ink) 0%,#2b2620 60%,#3d2a24 100%);color:#f5efe3;border-radius:6px;padding:48px 44px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;margin-bottom:40px;position:relative;overflow:hidden}
-.subscribe-cta::before{content:"";position:absolute;top:-100px;right:-100px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.18),transparent 70%)}
-.subscribe-cta::after{content:"";position:absolute;bottom:-120px;left:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(155,27,27,.2),transparent 70%)}
-.subscribe-cta h3{color:#fff;font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.15;margin-bottom:14px;position:relative;z-index:2}
-.subscribe-cta h3 em{font-style:italic;color:var(--gold-2)}
-.subscribe-cta p{font-family:'PT Serif',serif;font-size:15.5px;color:rgba(245,239,227,.75);line-height:1.7;position:relative;z-index:2;max-width:520px}
-.subscribe-actions{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:2;justify-content:flex-end}
-.sub-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:100px;font-weight:700;font-size:14px;transition:var(--tr);cursor:pointer}
-.sub-btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--ink);box-shadow:0 10px 30px -8px rgba(212,168,67,.6)}
-.sub-btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(212,168,67,.75)}
-.sub-btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
-.sub-btn.ghost:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
-.sub-btn svg{width:16px;height:16px}
-
 footer{background:var(--ink);color:rgba(245,239,227,.65);padding:56px 32px 0;position:relative;border-top:4px double var(--gold);margin-top:40px}
 .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-.footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:26px;color:#fff;line-height:1;margin-bottom:10px}
+.footer-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:24px;color:#fff;line-height:1;margin-bottom:10px}
 .footer-brand-sub{font-family:'PT Serif',serif;font-style:italic;font-size:12.5px;color:var(--gold-2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 footer h5{color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;margin-bottom:16px;letter-spacing:.08em;text-transform:uppercase}
 footer p{font-size:13.5px;line-height:1.7;color:rgba(245,239,227,.55)}
@@ -215,8 +229,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   .about-grid{grid-template-columns:1fr}
   .tl-items{grid-template-columns:1fr 1fr;gap:32px}
   .tl-items::before{display:none}
-  .subscribe-cta{grid-template-columns:1fr;gap:24px}
-  .subscribe-actions{justify-content:flex-start}
   .footer-inner{grid-template-columns:1fr 1fr}
 }
 @media (max-width:680px){
@@ -225,17 +237,17 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   .masthead{padding:22px 18px 18px}
   .masthead-inner{grid-template-columns:1fr;gap:14px}
   .masthead-side,.masthead-side.right{text-align:center;align-items:center}
+  .masthead h1{font-size:32px}
   .nav-inner{padding:0 14px}
   .nav-btn{padding:14px 12px;font-size:11.5px}
   .nav-subscribe{margin-left:0;padding:8px 14px;font-size:11.5px}
   main{padding:28px 18px 40px}
   .hero-main{padding:26px 24px}
-  .hero-photo{height:200px;margin-bottom:18px}
+  .hero-photo{min-height:180px}
   .hero-side{padding:28px 24px}
   .articles-grid{grid-template-columns:1fr;gap:20px}
   .archive-grid{grid-template-columns:1fr 1fr}
   .tl-items{grid-template-columns:1fr;gap:24px}
-  .subscribe-cta{padding:32px 24px}
   .footer-inner{grid-template-columns:1fr;gap:28px}
   .footer-bottom{flex-direction:column;text-align:center}
 }
@@ -245,20 +257,20 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 
 <div class="topbar">
   <div class="topbar-left">
-    <span><span class="live-dot"></span> В эфире с 1918 года</span>
+    <span><span class="live-dot"></span> Портал обновляется</span>
     <span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Архангельская область, г. Шенкурск, ул. Иванова, д. 11
     </span>
   </div>
   <div class="topbar-right">
-    <a onclick="alert('Переход на страницу подписки')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Подписка
+    <a onclick="switchPage('news')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+      Новости
     </a>
-    <a onclick="alert('Переход в редакцию')">
+    <a onclick="switchPage('contacts')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-      +7 (81851) 4-XX-XX
+      Контакты
     </a>
   </div>
 </div>
@@ -266,20 +278,20 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 <div class="masthead">
   <div class="masthead-inner">
     <div class="masthead-side">
-      <strong>Общественно-политическая газета</strong>
+      <strong>Информационный портал</strong>
       <span>Шенкурского муниципального округа<br>Архангельской области</span>
       <span class="date-line" id="issue-date">Пятница, 11 сентября 2026 г.</span>
     </div>
     <div class="masthead-center">
       <div class="logo-ornament">❦ ❦ ❦</div>
-      <h1>Важский край</h1>
-      <div class="subtitle">Издаётся с 1918 года</div>
+      <h1>Шенкурский вестник</h1>
+      <div class="subtitle">Новости · События · Люди</div>
       <div class="logo-ornament-bottom">❦ ❦ ❦</div>
     </div>
     <div class="masthead-side right">
-      <strong>Редакция газеты</strong>
+      <strong>Редакция портала</strong>
       <span>г. Шенкурск, ул. Иванова, д. 11<br>Пн–Пт 9:00–17:00</span>
-      <span class="date-line">redakciya@vk-gazeta.ru</span>
+      <span class="date-line">info@shenvestnik.ru</span>
     </div>
   </div>
 </div>
@@ -288,12 +300,12 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   <div class="nav-inner">
     <button class="nav-btn active" data-page="home">Главная</button>
     <button class="nav-btn" data-page="news">Новости</button>
-    <button class="nav-btn" data-page="archive">Архив номеров</button>
-    <button class="nav-btn" data-page="history">О газете</button>
+    <button class="nav-btn" data-page="archive">Архив</button>
+    <button class="nav-btn" data-page="history">О проекте</button>
     <button class="nav-btn" data-page="contacts">Контакты</button>
-    <button class="nav-subscribe" onclick="alert('Оформление подписки на газету «Важский край»')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-      Подписаться
+    <button class="nav-subscribe" onclick="switchPage('contacts')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Написать нам
     </button>
   </div>
 </div>
@@ -303,18 +315,18 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 <div class="page active" id="page-home">
   <div class="hero" id="hero-block">
     <div class="hero-main" id="hero-main">
-      <span class="hero-label">Главная тема номера</span>
+      <span class="hero-label">Главная тема</span>
       <h2 id="hero-title">Загрузка...</h2>
       <p class="hero-excerpt" id="hero-excerpt"></p>
       <div class="hero-meta">
         <span class="author">
-          <span class="author-avatar">ВК</span>
-          Редакция «Важского края»
+          <span class="author-avatar">ШВ</span>
+          Редакция «Шенкурского вестника»
         </span>
         <span id="hero-date"></span>
       </div>
-      <span class="hero-read" onclick="switchPage('news')">
-        Читать все новости
+      <span class="hero-read" id="hero-read-btn">
+        Читать полностью
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </span>
     </div>
@@ -380,46 +392,37 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 <div class="page" id="page-archive">
   <div class="archive-header">
     <div>
-      <h2>Архив номеров</h2>
-      <p>Все выпуски газеты «Важский край» в формате PDF</p>
+      <h2>Архив материалов</h2>
+      <p>Подборка публикаций по месяцам</p>
     </div>
     <div style="font-size:13px;color:var(--muted)">Свежие выпуски</div>
   </div>
   <div class="archive-grid">
-    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Важский край</div><div class="issue-num">№ 74 · 11 сентября 2026</div><div class="issue-headline">Набережная Ваги открыта после ремонта</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">11 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
-    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Важский край</div><div class="issue-num">№ 73 · 8 сентября 2026</div><div class="issue-headline">Фестиваль «Важская сторонка» — программа</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">8 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
-    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Важский край</div><div class="issue-num">№ 72 · 4 сентября 2026</div><div class="issue-headline">День знаний в школах Шенкурского округа</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">4 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
-    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Важский край</div><div class="issue-num">№ 71 · 1 сентября 2026</div><div class="issue-headline">Итоги уборочной кампании</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">1 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
+    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Шенкурский вестник</div><div class="issue-num">№ 74 · 11 сентября 2026</div><div class="issue-headline">Набережная Ваги открыта после ремонта</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">11 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
+    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Шенкурский вестник</div><div class="issue-num">№ 73 · 8 сентября 2026</div><div class="issue-headline">Фестиваль «Важская сторонка» — программа</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">8 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
+    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Шенкурский вестник</div><div class="issue-num">№ 72 · 4 сентября 2026</div><div class="issue-headline">День знаний в школах округа</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">4 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
+    <div class="issue-card"><div class="issue-cover"><div class="issue-masthead">Шенкурский вестник</div><div class="issue-num">№ 71 · 1 сентября 2026</div><div class="issue-headline">Итоги уборочной кампании</div><div class="issue-lines"><span></span><span></span><span></span><span></span><span></span><span></span></div></div><div class="issue-info"><div class="date">1 сентября<span>2026 года</span></div><span class="pdf-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span></div></div>
   </div>
 </div>
 
 <div class="page" id="page-history">
-  <div class="section-head"><h2>О газете</h2></div>
+  <div class="section-head"><h2>О проекте</h2></div>
   <div class="about-grid">
     <div class="about-card">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Больше века с читателем</h3>
-      <p>«Важский край» — старейшее периодическое издание Шенкурского района. Первый номер газеты вышел в 1918 году под названием «Известия Шенкурского уездного Совета».</p>
-      <p>За более чем столетнюю историю газета несколько раз меняла название, но всегда оставалась верна главному — рассказывать о жизни родного края и его людях.</p>
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Что это</h3>
+      <p>«Шенкурский вестник» — <strong>неофициальный информационный ресурс</strong> Шенкурского муниципального округа Архангельской области. Портал создан для удобного доступа к новостям и событиям родного края.</p>
+      <p>Мы не являемся средством массовой информации и не заменяем официальные источники. Все материалы публикуются в информационных целях.</p>
     </div>
     <div class="about-card">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Сегодня</h3>
-      <p>Сегодня «Важский край» — это не только печатное издание, выходящее два раза в неделю, но и современный медиаресурс с ежедневной лентой новостей.</p>
-      <p>Тираж газеты — около 2 000 экземпляров. Материалы готовит команда из 8 человек: журналисты, фотографы, корректоры и верстальщики.</p>
-    </div>
-  </div>
-  <div class="timeline">
-    <h3>История в <em>датах</em></h3>
-    <div class="tl-items">
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1918</div><div class="tl-text">Выход первого номера под названием «Известия»</div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1930</div><div class="tl-text">Газета получает название «Ленинский путь»</div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">1991</div><div class="tl-text">Издание переименовано в «Важский край»</div></div>
-      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2018</div><div class="tl-text">100-летний юбилей, запуск сайта и архива</div></div>
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Что публикуем</h3>
+      <p>Новости округа, анонсы событий, культурные и спортивные материалы, полезную справочную информацию для жителей.</p>
+      <p>Если вы хотите предложить новость или сообщить о событии — напишите нам через раздел «Контакты».</p>
     </div>
   </div>
 </div>
 
 <div class="page" id="page-contacts">
-  <div class="section-head"><h2>Контакты редакции</h2></div>
+  <div class="section-head"><h2>Контакты</h2></div>
   <div class="about-grid">
     <div class="about-card">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Адрес и режим работы</h3>
@@ -429,8 +432,7 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
     <div class="about-card">
       <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>Связь с редакцией</h3>
       <p><strong>Телефон:</strong> +7 (81851) 4-XX-XX</p>
-      <p><strong>Email:</strong> redakciya@vk-gazeta.ru</p>
-      <p><strong>Реклама:</strong> reklama@vk-gazeta.ru</p>
+      <p><strong>Email:</strong> info@shenvestnik.ru</p>
     </div>
   </div>
 </div>
@@ -440,26 +442,26 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="footer-brand">Важский край</div>
-      <div class="footer-brand-sub">Издаётся с 1918 года</div>
-      <p>Общественно-политическая газета Шенкурского муниципального округа Архангельской области.</p>
+      <div class="footer-brand">Шенкурский вестник</div>
+      <div class="footer-brand-sub">Информационный портал</div>
+      <p>Неофициальный информационный ресурс Шенкурского муниципального округа Архангельской области. Публикуемые материалы не являются официальной позицией каких-либо органов власти.</p>
     </div>
     <div>
       <h5>Разделы</h5>
       <ul>
         <li><a onclick="switchPage('home')">Главная</a></li>
         <li><a onclick="switchPage('news')">Новости</a></li>
-        <li><a onclick="switchPage('archive')">Архив номеров</a></li>
-        <li><a onclick="switchPage('history')">О газете</a></li>
+        <li><a onclick="switchPage('archive')">Архив</a></li>
+        <li><a onclick="switchPage('history')">О проекте</a></li>
         <li><a onclick="switchPage('contacts')">Контакты</a></li>
       </ul>
     </div>
     <div>
-      <h5>Редакция</h5>
+      <h5>Контакты</h5>
       <ul>
         <li><a>г. Шенкурск, ул. Иванова, 11</a></li>
         <li><a>+7 (81851) 4-XX-XX</a></li>
-        <li><a>redakciya@vk-gazeta.ru</a></li>
+        <li><a>info@shenvestnik.ru</a></li>
       </ul>
     </div>
     <div>
@@ -472,8 +474,8 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 1918–2026 Газета «Важский край». Все права защищены.</span>
-    <span>Свидетельство о регистрации СМИ</span>
+    <span>© 2026 Шенкурский вестник · Неофициальный информационный ресурс</span>
+    <span>Сделано для жителей Шенкурского округа</span>
   </div>
 </footer>
 
@@ -487,12 +489,14 @@ function switchPage(pageId){
   if(b) b.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   setTimeout(initReveal, 50);
+  history.replaceState(null, '', '#' + pageId);
 }
 document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', function(){ switchPage(this.getAttribute('data-page')); });
 });
 
 let allNews = [];
+let currentHeroId = null;
 
 async function loadNews(){
   try{
@@ -537,18 +541,24 @@ function escapeHtml(str){
 }
 
 function renderHero(){
+  const heroMain = document.getElementById('hero-main');
+  const heroTitle = document.getElementById('hero-title');
+  const heroExcerpt = document.getElementById('hero-excerpt');
+  const heroDate = document.getElementById('hero-date');
+  const heroRead = document.getElementById('hero-read-btn');
+
   if(allNews.length === 0){
-    document.getElementById('hero-title').textContent = 'Новости скоро появятся';
-    document.getElementById('hero-excerpt').textContent = 'Заходите позже — редакция готовит свежие материалы.';
+    heroTitle.textContent = 'Новости скоро появятся';
+    heroExcerpt.textContent = 'Заходите позже — редакция готовит свежие материалы.';
     return;
   }
   const top = allNews[0];
-  document.getElementById('hero-title').innerHTML = escapeHtml(top.title);
-  document.getElementById('hero-excerpt').textContent = top.excerpt || (top.body || '').slice(0, 200) + '...';
-  document.getElementById('hero-date').textContent = formatDateShort(top.date);
+  currentHeroId = top.id;
+  heroTitle.textContent = top.title;
+  heroExcerpt.textContent = top.excerpt || (top.body || '').slice(0, 200) + '...';
+  heroDate.textContent = formatDateShort(top.date);
+  heroRead.onclick = ()=> location.href = 'article.html?id=' + encodeURIComponent(top.id);
 
-  // Фото в hero (если есть)
-  const heroMain = document.getElementById('hero-main');
   const existingPhoto = heroMain.querySelector('.hero-photo');
   if(existingPhoto) existingPhoto.remove();
   if(top.image){
@@ -561,7 +571,7 @@ function renderHero(){
   const sideList = document.getElementById('hero-side-list');
   const latest = allNews.slice(0, 4);
   sideList.innerHTML = latest.map(item => `
-    <div class="side-item" onclick="switchPage('news')">
+    <div class="side-item" onclick="location.href='article.html?id=${encodeURIComponent(item.id)}'">
       <div class="time">${formatDateShort(item.date)}</div>
       <h4>${escapeHtml(item.title)}</h4>
     </div>
@@ -581,7 +591,7 @@ function renderNewsGrid(containerId, news){
     const alt = 'alt' + ((i % 5) + 1);
     const hasPhoto = item.image && item.image.length > 0;
     return `
-      <div class="article-card reveal">
+      <div class="article-card reveal" onclick="location.href='article.html?id=${encodeURIComponent(item.id)}'">
         <div class="article-img ${alt} ${hasPhoto ? 'has-photo' : ''}">
           ${item.category ? `<span class="cat-badge">${escapeHtml(item.category)}</span>` : ''}
           ${hasPhoto
@@ -593,23 +603,11 @@ function renderNewsGrid(containerId, news){
           <div class="date">${dateStr}</div>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.excerpt || (item.body || '').slice(0, 150) + '...')}</p>
-          <span class="read-more" onclick="showArticle('${item.id}')">Читать →</span>
+          <span class="read-more">Читать →</span>
         </div>
       </div>`;
   }).join('');
   initReveal();
-}
-
-function showArticle(id){
-  const item = allNews.find(n => String(n.id) === String(id));
-  if(!item) return;
-  alert(
-    item.title + '\n\n' +
-    formatDateShort(item.date) +
-    (item.category ? ' · ' + item.category : '') +
-    '\n\n' +
-    (item.body || item.excerpt || 'Текст статьи')
-  );
 }
 
 document.querySelectorAll('.tags-row').forEach(row => {
