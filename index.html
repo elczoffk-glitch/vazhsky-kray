@@ -83,6 +83,8 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .hero-read{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:700;font-size:13.5px;color:var(--red);text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:var(--tr)}
 .hero-read:hover{gap:12px}
 .hero-read svg{width:15px;height:15px}
+.hero-photo{width:100%;height:280px;border-radius:8px;overflow:hidden;margin-bottom:24px;background:#1a1613}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-side{background:linear-gradient(180deg,var(--ink) 0%,#2b2620 100%);color:#f5efe3;padding:36px 32px;display:flex;flex-direction:column;gap:22px;position:relative;overflow:hidden}
 .hero-side::before{content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.15),transparent 70%)}
 .hero-side h3{color:#fff;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;text-transform:uppercase;letter-spacing:.1em;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:10px;position:relative}
@@ -108,14 +110,18 @@ main{max-width:1280px;margin:0 auto;padding:40px 32px 60px;width:100%}
 .article-card{background:var(--card);border-radius:4px;overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:var(--tr);display:flex;flex-direction:column}
 .article-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
 .article-img{height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#c9b896,#a8926d);display:grid;place-items:center;color:rgba(255,255,255,.85)}
-.article-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(26,22,19,.25))}
+.article-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(26,22,19,.25));z-index:2}
 .article-img.alt1{background:linear-gradient(135deg,#8fa896,#5e7a63)}
 .article-img.alt2{background:linear-gradient(135deg,#b8968f,#8a5e5a)}
 .article-img.alt3{background:linear-gradient(135deg,#96a8b8,#5e7a8a)}
 .article-img.alt4{background:linear-gradient(135deg,#b8a896,#8a7a5e)}
 .article-img.alt5{background:linear-gradient(135deg,#a896b8,#7a5e8a)}
-.article-img svg{width:44px;height:44px;opacity:.55}
-.article-img .cat-badge{position:absolute;top:14px;left:14px;background:rgba(255,253,248,.95);color:var(--red);font-size:10.5px;font-weight:700;padding:4px 10px;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;z-index:2}
+.article-img svg{width:44px;height:44px;opacity:.55;position:relative;z-index:1}
+.article-img.has-photo{background:#ede4d2}
+.article-img.has-photo svg{display:none}
+.article-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;transition:transform .6s cubic-bezier(.4,.14,.3,1)}
+.article-card:hover .article-img img{transform:scale(1.06)}
+.article-img .cat-badge{position:absolute;top:14px;left:14px;background:rgba(255,253,248,.95);color:var(--red);font-size:10.5px;font-weight:700;padding:4px 10px;letter-spacing:.1em;text-transform:uppercase;border-radius:2px;z-index:3}
 .article-body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
 .article-body .date{font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px}
 .article-body h3{font-size:19px;font-weight:700;line-height:1.28;margin-bottom:12px;transition:color .3s}
@@ -224,6 +230,7 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   .nav-subscribe{margin-left:0;padding:8px 14px;font-size:11.5px}
   main{padding:28px 18px 40px}
   .hero-main{padding:26px 24px}
+  .hero-photo{height:200px;margin-bottom:18px}
   .hero-side{padding:28px 24px}
   .articles-grid{grid-template-columns:1fr;gap:20px}
   .archive-grid{grid-template-columns:1fr 1fr}
@@ -293,10 +300,9 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 
 <main>
 
-<!-- ГЛАВНАЯ -->
 <div class="page active" id="page-home">
   <div class="hero" id="hero-block">
-    <div class="hero-main">
+    <div class="hero-main" id="hero-main">
       <span class="hero-label">Главная тема номера</span>
       <h2 id="hero-title">Загрузка...</h2>
       <p class="hero-excerpt" id="hero-excerpt"></p>
@@ -352,7 +358,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   </div>
 </div>
 
-<!-- НОВОСТИ -->
 <div class="page" id="page-news">
   <div class="section-head">
     <h2>Все новости</h2>
@@ -372,7 +377,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   </div>
 </div>
 
-<!-- АРХИВ -->
 <div class="page" id="page-archive">
   <div class="archive-header">
     <div>
@@ -389,7 +393,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   </div>
 </div>
 
-<!-- О ГАЗЕТЕ -->
 <div class="page" id="page-history">
   <div class="section-head"><h2>О газете</h2></div>
   <div class="about-grid">
@@ -415,7 +418,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
   </div>
 </div>
 
-<!-- КОНТАКТЫ -->
 <div class="page" id="page-contacts">
   <div class="section-head"><h2>Контакты редакции</h2></div>
   <div class="about-grid">
@@ -476,7 +478,6 @@ footer ul li a:hover{color:var(--gold-2);gap:11px}
 </footer>
 
 <script>
-// ============ НАВИГАЦИЯ ============
 function switchPage(pageId){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -491,10 +492,8 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', function(){ switchPage(this.getAttribute('data-page')); });
 });
 
-// ============ ДАННЫЕ ============
 let allNews = [];
 
-// ============ ЗАГРУЗКА НОВОСТЕЙ ============
 async function loadNews(){
   try{
     const res = await fetch('content/news.json?t=' + Date.now());
@@ -511,7 +510,6 @@ async function loadNews(){
   renderNewsGrid('news-container-full', allNews);
 }
 
-// ============ ИКОНКИ РУБРИК ============
 const ICONS = {
   'Общество': 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M9 7a4 4 0 100 8 4 4 0 000-8',
   'Культура': 'M9 18V5l12-2v13 M6 18a3 3 0 100-6 3 3 0 000 6',
@@ -534,12 +532,10 @@ function formatDateLong(d){
   const days = ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
   return `${days[dt.getDay()]}, ${dt.getDate()} ${MONTHS_FULL[dt.getMonth()]} ${dt.getFullYear()} г.`;
 }
-
 function escapeHtml(str){
   return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-// ============ HERO ============
 function renderHero(){
   if(allNews.length === 0){
     document.getElementById('hero-title').textContent = 'Новости скоро появятся';
@@ -551,6 +547,17 @@ function renderHero(){
   document.getElementById('hero-excerpt').textContent = top.excerpt || (top.body || '').slice(0, 200) + '...';
   document.getElementById('hero-date').textContent = formatDateShort(top.date);
 
+  // Фото в hero (если есть)
+  const heroMain = document.getElementById('hero-main');
+  const existingPhoto = heroMain.querySelector('.hero-photo');
+  if(existingPhoto) existingPhoto.remove();
+  if(top.image){
+    const photoDiv = document.createElement('div');
+    photoDiv.className = 'hero-photo';
+    photoDiv.innerHTML = `<img src="${escapeHtml(top.image)}" alt="${escapeHtml(top.title)}">`;
+    heroMain.insertBefore(photoDiv, heroMain.firstChild);
+  }
+
   const sideList = document.getElementById('hero-side-list');
   const latest = allNews.slice(0, 4);
   sideList.innerHTML = latest.map(item => `
@@ -561,7 +568,6 @@ function renderHero(){
   `).join('');
 }
 
-// ============ СЕТКА НОВОСТЕЙ ============
 function renderNewsGrid(containerId, news){
   const container = document.getElementById(containerId);
   if(!container) return;
@@ -573,11 +579,15 @@ function renderNewsGrid(containerId, news){
     const dateStr = formatDateShort(item.date);
     const path = ICONS[item.category] || ICONS['Общество'];
     const alt = 'alt' + ((i % 5) + 1);
+    const hasPhoto = item.image && item.image.length > 0;
     return `
       <div class="article-card reveal">
-        <div class="article-img ${alt}">
+        <div class="article-img ${alt} ${hasPhoto ? 'has-photo' : ''}">
           ${item.category ? `<span class="cat-badge">${escapeHtml(item.category)}</span>` : ''}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="${path}"/></svg>
+          ${hasPhoto
+            ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">`
+            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="${path}"/></svg>`
+          }
         </div>
         <div class="article-body">
           <div class="date">${dateStr}</div>
@@ -590,7 +600,6 @@ function renderNewsGrid(containerId, news){
   initReveal();
 }
 
-// ============ ПРОСМОТР СТАТЬИ ============
 function showArticle(id){
   const item = allNews.find(n => String(n.id) === String(id));
   if(!item) return;
@@ -603,7 +612,6 @@ function showArticle(id){
   );
 }
 
-// ============ ФИЛЬТРЫ ============
 document.querySelectorAll('.tags-row').forEach(row => {
   row.querySelectorAll('.tag-pill').forEach(pill => {
     pill.addEventListener('click', function(){
@@ -620,7 +628,6 @@ document.querySelectorAll('.tags-row').forEach(row => {
   });
 });
 
-// ============ REVEAL-АНИМАЦИЯ ============
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -638,14 +645,11 @@ function initReveal(){
   });
 }
 
-// ============ ДАТА ВЫПУСКА ============
 document.getElementById('issue-date').textContent = formatDateLong(new Date());
 
-// ============ СТАРТ ============
 loadNews();
 window.addEventListener('load', initReveal);
 
-// Хэш в URL
 if(location.hash){
   const h = location.hash.replace('#','');
   if(document.getElementById('page-'+h)) switchPage(h);
