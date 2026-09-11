@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Админ-панель — Важский край</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:#f5efe3;color:#1a1613;min-height:100vh}
+.hidden{display:none!important}
+
+/* LOGIN */
+#login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-card{background:#fffdf8;border:1px solid #d9cfbc;border-radius:12px;padding:40px;max-width:480px;width:100%;box-shadow:0 20px 40px -20px rgba(26,22,19,.2)}
+.login-card h1{font-family:'Playfair Display',Georgia,serif;font-size:32px;margin-bottom:8px;color:#1a1613}
+.login-card .sub{color:#6b6258;margin-bottom:24px;font-size:14px;line-height:1.6}
+.login-card label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:#1a1613}
+.login-card input{width:100%;padding:12px 14px;border:1.5px solid #d9cfbc;border-radius:8px;font-size:14px;font-family:inherit;background:#fbfcfe;margin-bottom:16px}
+.login-card input:focus{outline:none;border-color:#9b1b1b;box-shadow:0 0 0 3px rgba(155,27,27,.1)}
+.login-card button{width:100%;padding:14px;background:#9b1b1b;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s}
+.login-card button:hover{background:#c4302b}
+.help{font-size:12.5px;color:#6b6258;margin-top:16px;line-height:1.6}
+.help a{color:#9b1b1b;text-decoration:underline;cursor:pointer}
+.error{background:#ffeaea;color:#9b1b1b;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;display:none}
+.error.show{display:block}
+
+/* ADMIN */
+.topbar{background:#1a1613;color:#f5efe3;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.topbar h1{font-family:'Playfair Display',Georgia,serif;font-size:18px;color:#fff}
+.topbar .actions{display:flex;gap:12px;align-items:center}
+.topbar a,.topbar button{color:rgba(245,239,227,.8);font-size:13px;background:none;border:1px solid rgba(255,255,255,.15);padding:8px 14px;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .3s;font-family:inherit}
+.topbar a:hover,.topbar button:hover{background:rgba(255,255,255,.1);color:#fff}
+.topbar .status{font-size:12px;color:rgba(245,239,227,.6)}
+
+.layout{display:grid;grid-template-columns:320px 1fr;gap:0;min-height:calc(100vh - 60px)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+
+.sidebar{background:#fffdf8;border-right:1px solid #d9cfbc;padding:20px;overflow-y:auto;max-height:calc(100vh - 60px)}
+.sidebar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.sidebar-header h2{font-size:15px;font-weight:700;color:#1a1613}
+.sidebar-header .count{font-size:12px;color:#6b6258}
+.btn-new{background:#9b1b1b;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;width:100%;margin-bottom:16px;transition:all .3s;font-family:inherit}
+.btn-new:hover{background:#c4302b}
+.news-list{display:flex;flex-direction:column;gap:8px}
+.news-item{padding:12px 14px;background:#f5efe3;border-radius:8px;cursor:pointer;transition:all .2s;border:1px solid transparent;font-size:13px}
+.news-item:hover{background:#ede4d2}
+.news-item.active{background:#1a1613;color:#fff;border-color:#1a1613}
+.news-item .t{font-weight:600;margin-bottom:4px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-item .d{font-size:11.5px;color:#6b6258}
+.news-item.active .d{color:rgba(245,239,227,.6)}
+.news-item .cat{display:inline-block;font-size:10px;padding:2px 7px;background:rgba(155,27,27,.1);color:#9b1b1b;border-radius:10px;margin-top:6px;font-weight:600}
+.news-item.active .cat{background:rgba(255,255,255,.15);color:#f5efe3}
+
+.editor{padding:32px;overflow-y:auto;max-height:calc(100vh - 60px)}
+.editor-inner{max-width:800px;margin:0 auto}
+.editor h2{font-family:'Playfair Display',Georgia,serif;font-size:26px;color:#1a1613;margin-bottom:24px}
+.empty-state{text-align:center;padding:60px 20px;color:#6b6258}
+.empty-state h3{font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1613;margin-bottom:10px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#1a1613}
+.field label .req{color:#9b1b1b}
+.field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid #d9cfbc;border-radius:8px;font-size:14px;font-family:inherit;background:#fffdf8;color:#1a1613;transition:all .3s}
+.field textarea{min-height:80px;resize:vertical;line-height:1.6}
+.field textarea.big{min-height:240px}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:#9b1b1b;box-shadow:0 0 0 3px rgba(155,27,27,.1)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.field-row{grid-template-columns:1fr}}
+.actions-bar{display:flex;gap:12px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #d9cfbc;margin-top:8px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .3s;font-family:inherit;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:#9b1b1b;color:#fff}
+.btn-primary:hover{background:#c4302b;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-danger{background:#fff;color:#9b1b1b;border:1.5px solid #9b1b1b}
+.btn-danger:hover{background:#9b1b1b;color:#fff}
+.btn-ghost{background:#f5efe3;color:#1a1613}
+.btn-ghost:hover{background:#ede4d2}
+.toast{position:fixed;bottom:24px;right:24px;background:#1a1613;color:#fff;padding:14px 20px;border-radius:10px;font-size:14px;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);opacity:0;transform:translateY(20px);transition:all .3s;z-index:1000;max-width:340px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.error{background:#9b1b1b}
+.toast.success{background:#2d6a4f}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login">
+  <div class="login-card">
+    <h1>Админ-панель</h1>
+    <p class="sub">Газета «Важский край». Введите токен GitHub, чтобы управлять новостями.</p>
+    <div class="error" id="loginError"></div>
+    <label for="token">Personal Access Token</label>
+    <input type="password" id="token" placeholder="ghp_xxxxxxxxxxxxxxxx">
+    <button onclick="login()">Войти</button>
+    <p class="help">
+      Токен создаётся один раз: <a onclick="window.open('https://github.com/settings/tokens/new?scopes=repo&description=Vazhsky+Kray+Admin','_blank')">создать токен на GitHub</a>.<br>
+      Права: <b>repo</b> (полный доступ к репозиториям).<br>
+      Токен хранится только в вашем браузере и никуда не отправляется, кроме GitHub.
+    </p>
+  </div>
+</div>
+
+<!-- ADMIN SCREEN -->
+<div id="admin" class="hidden">
+  <div class="topbar">
+    <h1>📰 Админ-панель · Важский край</h1>
+    <div class="actions">
+      <span class="status" id="status">Готово</span>
+      <a href="index.html" target="_blank">Открыть сайт ↗</a>
+      <button onclick="logout()">Выйти</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Новости</h2>
+        <span class="count" id="count">0</span>
+      </div>
+      <button class="btn-new" onclick="newItem()">+ Добавить новость</button>
+      <div class="news-list" id="newsList"></div>
+    </aside>
+
+    <!-- EDITOR -->
+    <section class="editor">
+      <div class="editor-inner" id="editorInner">
+        <div class="empty-state">
+          <h3>Выберите новость</h3>
+          <p>или создайте новую, чтобы начать редактирование</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ==================== КОНФИГ ====================
+const CONFIG = {
+  owner: 'elczoffk-glitch',
+  repo: 'vazhsky-kray',
+  branch: 'main',
+  path: 'content/news.json'
+};
+
+const CATEGORIES = ['Общество','Культура','Спорт','ЖКХ','Образование','История','Официально','Люди'];
+
+// ==================== СОСТОЯНИЕ ====================
+let token = localStorage.getItem('gh_token') || '';
+let newsData = [];
+let currentSha = null;
+let editingIndex = -1;
+
+// ==================== УТИЛИТЫ ====================
+function b64Encode(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function b64Decode(str){
+  return decodeURIComponent(escape(atob(str)));
+}
+function showToast(msg, type=''){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+function setStatus(text){
+  document.getElementById('status').textContent = text;
+}
+function formatDate(d){
+  if(!d) return '';
+  const dt = new Date(d);
+  const months = ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+  return `${dt.getDate()} ${months[dt.getMonth()]} ${dt.getFullYear()}`;
+}
+
+// ==================== АВТОРИЗАЦИЯ ====================
+async function login(){
+  const input = document.getElementById('token');
+  const errEl = document.getElementById('loginError');
+  const t = input.value.trim();
+  if(!t){ errEl.textContent = 'Введите токен'; errEl.classList.add('show'); return; }
+  errEl.classList.remove('show');
+  token = t;
+  try {
+    await loadNews();
+    localStorage.setItem('gh_token', token);
+    document.getElementById('login').classList.add('hidden');
+    document.getElementById('admin').classList.remove('hidden');
+    renderList();
+    showToast('Добро пожаловать!', 'success');
+  } catch(e){
+    errEl.textContent = 'Не удалось подключиться: ' + e.message;
+    errEl.classList.add('show');
+  }
+}
+function logout(){
+  localStorage.removeItem('gh_token');
+  location.reload();
+}
+
+// ==================== GITHUB API ====================
+async function loadNews(){
+  const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}?ref=${CONFIG.branch}&t=${Date.now()}`;
+  const res = await fetch(url, {
+    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+  });
+  if(res.status === 401) throw new Error('токен неверный');
+  if(res.status === 404) throw new Error('файл content/news.json не найден');
+  if(!res.ok) throw new Error('ошибка ' + res.status);
+  const data = await res.json();
+  currentSha = data.sha;
+  const content = b64Decode(data.content);
+  newsData = JSON.parse(content);
+  if(!Array.isArray(newsData)) newsData = [];
+}
+
+async function saveNews(){
+  const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.path}`;
+  const content = b64Encode(JSON.stringify(newsData, null, 2));
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${token}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: `Обновление новостей (${new Date().toLocaleString('ru-RU')})`,
+      content: content,
+      sha: currentSha,
+      branch: CONFIG.branch
+    })
+  });
+  if(!res.ok){
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || ('ошибка ' + res.status));
+  }
+  const data = await res.json();
+  currentSha = data.content.sha;
+}
+
+// ==================== СПИСОК ====================
+function renderList(){
+  const list = document.getElementById('newsList');
+  document.getElementById('count').textContent = newsData.length;
+  if(newsData.length === 0){
+    list.innerHTML = '<p style="color:#6b6258;font-size:13px;text-align:center;padding:20px 0">Новостей пока нет</p>';
+    return;
+  }
+  list.innerHTML = newsData.map((item, i) => `
+    <div class="news-item ${i === editingIndex ? 'active' : ''}" onclick="editItem(${i})">
+      <div class="t">${escapeHtml(item.title || 'Без заголовка')}</div>
+      <div class="d">${formatDate(item.date)}</div>
+      ${item.category ? `<span class="cat">${escapeHtml(item.category)}</span>` : ''}
+    </div>
+  `).join('');
+}
+
+function escapeHtml(str){
+  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+// ==================== РЕДАКТОР ====================
+function renderEditor(){
+  const inner = document.getElementById('editorInner');
+  if(editingIndex === -1){
+    inner.innerHTML = `<div class="empty-state"><h3>Выберите новость</h3><p>или создайте новую, чтобы начать редактирование</p></div>`;
+    return;
+  }
+  const item = newsData[editingIndex] || {};
+  inner.innerHTML = `
+    <h2>${item.title ? 'Редактирование' : 'Новая новость'}</h2>
+    <div class="field">
+      <label>Заголовок <span class="req">*</span></label>
+      <input type="text" id="f-title" value="${escapeHtml(item.title || '')}" placeholder="О чём новость?">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Дата <span class="req">*</span></label>
+        <input type="date" id="f-date" value="${item.date || new Date().toISOString().slice(0,10)}">
+      </div>
+      <div class="field">
+        <label>Рубрика</label>
+        <select id="f-category">
+          <option value="">— Без рубрики —</option>
+          ${CATEGORIES.map(c => `<option value="${c}" ${item.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Краткое описание (анонс)</label>
+      <textarea id="f-excerpt" placeholder="1–2 предложения для карточки на главной...">${escapeHtml(item.excerpt || '')}</textarea>
+    </div>
+    <div class="field">
+      <label>Полный текст</label>
+      <textarea id="f-body" class="big" placeholder="Текст статьи...">${escapeHtml(item.body || '')}</textarea>
+    </div>
+    <div class="actions-bar">
+      <button class="btn btn-primary" id="saveBtn" onclick="saveItem()">💾 Сохранить</button>
+      <button class="btn btn-danger" onclick="deleteItem()">🗑 Удалить</button>
+      <button class="btn btn-ghost" onclick="cancelEdit()">Отмена</button>
+    </div>
+  `;
+}
+
+function newItem(){
+  editingIndex = newsData.length;
+  newsData.push({
+    id: String(Date.now()),
+    title: '',
+    date: new Date().toISOString().slice(0,10),
+    category: '',
+    excerpt: '',
+    body: ''
+  });
+  renderList();
+  renderEditor();
+}
+
+function editItem(i){
+  editingIndex = i;
+  renderList();
+  renderEditor();
+}
+
+function cancelEdit(){
+  // Если это была новая пустая — удаляем
+  if(editingIndex === newsData.length - 1 && !newsData[editingIndex].title){
+    newsData.pop();
+  }
+  editingIndex = -1;
+  renderList();
+  renderEditor();
+}
+
+async function saveItem(){
+  const item = newsData[editingIndex];
+  item.title = document.getElementById('f-title').value.trim();
+  item.date = document.getElementById('f-date').value;
+  item.category = document.getElementById('f-category').value;
+  item.excerpt = document.getElementById('f-excerpt').value.trim();
+  item.body = document.getElementById('f-body').value.trim();
+
+  if(!item.title){ showToast('Введите заголовок', 'error'); return; }
+  if(!item.date){ showToast('Укажите дату', 'error'); return; }
+
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Сохранение...';
+  setStatus('Сохранение...');
+  try {
+    await saveNews();
+    showToast('Сохранено! Сайт обновится через минуту', 'success');
+    setStatus('Сохранено');
+    editingIndex = -1;
+    renderList();
+    renderEditor();
+  } catch(e){
+    showToast('Ошибка: ' + e.message, 'error');
+    setStatus('Ошибка');
+    btn.disabled = false;
+    btn.textContent = '💾 Сохранить';
+  }
+}
+
+async function deleteItem(){
+  if(!confirm('Удалить эту новость? Действие необратимо.')) return;
+  newsData.splice(editingIndex, 1);
+  setStatus('Удаление...');
+  try {
+    await saveNews();
+    showToast('Удалено', 'success');
+    setStatus('Готово');
+    editingIndex = -1;
+    renderList();
+    renderEditor();
+  } catch(e){
+    showToast('Ошибка: ' + e.message, 'error');
+  }
+}
+
+// ==================== СТАРТ ====================
+(async function init(){
+  if(token){
+    try {
+      await loadNews();
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('admin').classList.remove('hidden');
+      renderList();
+    } catch(e){
+      localStorage.removeItem('gh_token');
+      token = '';
+    }
+  }
+})();
+</script>
+</body>
+</html>
